@@ -1,0 +1,15 @@
+<div id="hello" v-cloak>
+
+    <h1 class="display-4"><%= title%></h1>
+    <p><%= message%></p>
+
+    <form action="/sample" method="post">
+        <div class="mb-3">
+            <label for="msg" class="form-label">ID</label>
+            <input type="text" class="form-control" id="msg" name="msg" value="<%= msg%>">
+        </div>
+        <button type="submit" class="btn btn-secondary">送信</button>
+    </form>
+</div>
+<!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
+<%- exposeLocalsToBrowser() %>
