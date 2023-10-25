@@ -12,9 +12,8 @@ module.exports = {
    */
   index: async function (req, res) {
     message = '名前を入力:'
-      if (req.method == 'post') {
-        message = 'こんにちは' + req.body.msg + 'さん'
-        console.log(message);
+      if (req.method == 'POST') {
+        message = 'こんにちは' + req.body.msg + 'さん';
       }
     return res.view({
       title: 'Sample',
