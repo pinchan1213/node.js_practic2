@@ -1,0 +1,8 @@
+<div id="hello" v-cloak>
+
+  <h1><%= title%></h1>
+  <p><%= message%></p>
+
+</div>
+<!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
