@@ -21,7 +21,9 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/hello': { action: 'view-hello' },
-  '/sample':{controller:'SampleController',action:'index'},
+  'POST /sample': { controller: 'SampleController', action: 'index' },
+  'GET /sample': { controller: 'SampleController', action: 'index_posted' },
+  'GET /sample/:id?': {controller:'SampleController',action:'index'}
 
 
   /***************************************************************************

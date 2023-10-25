@@ -10,14 +10,32 @@ module.exports = {
   /**
    * `SampleController.index()`
    */
+  //送信ボタンを押した後の処理
   index: async function (req, res) {
-    message = '名前を入力:'
-      if (req.method == 'POST') {
-        message = 'こんにちは' + req.body.msg + 'さん';
-      }
+    let msg = req.body.msg;
+    let message = '';
+    if (req.param('id')) {
+      message = 'あなたのIDは、' + req.param('id') + 'です。';
+    } else {
+      message = '名前を入力：';
+    }
+    if (req.method == 'POST') {
+      message = 'こんにちは、' + req.body.msg + 'さん';
+    }
     return res.view({
       title: 'Sample',
-      message:message
+      message: message,
+      msg:msg,
+    });
+  },
+
+  index_posted: async function (req, res) {
+    let msg = req.body.msg; 
+    let message = 'こんにちは' + msg + 'さん';
+    return res.view({
+      title: 'Sample',
+      msg: msg,
+      message:message,
     });
   },
 
