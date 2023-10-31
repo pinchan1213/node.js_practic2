@@ -13,12 +13,12 @@ module.exports = {
   //送信ボタンを押した後の処理
   index: async function (req, res) {
     // let msg = req.body.msg;
-    // let message = '';
-    if (req.param('id')) {
-      message = 'あなたのIDは、' + req.param('id') + 'です。';
-    } else {
-      message = '名前を入力：';
-    }
+    message = '名前を入力';
+    // if (req.param('id')) {
+    //   message = 'あなたのIDは、' + req.param('id') + 'です。';
+    // } else {
+    //   message = '名前を入力：';
+    // }
     if (req.method == 'POST') {
       message = 'こんにちは、' + req.body.msg + 'さん';
     }
@@ -29,15 +29,15 @@ module.exports = {
     });
   },
 
-  index_posted: async function (req, res) {
-    msg = req.body.msg
-    message = 'こんにちは' + msg + 'さん'
-    return res.view({
-      title: 'Sample',
-      msg: msg,
-      message:message
-    })
-  },
+  // index_posted: async function (req, res) {
+  //   let msg = req.body.msg;
+  //   let message = 'こんにちは' + msg + 'さん';
+  //   return res.view({
+  //     title: 'Sample',
+  //     msg: msg,
+  //     message: message
+  //   });
+  // },
 
   /**
    * `SampleController.add()`
@@ -66,5 +66,4 @@ module.exports = {
     });
   }
 
-};
-
+}
