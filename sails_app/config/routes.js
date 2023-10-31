@@ -23,7 +23,8 @@ module.exports.routes = {
   '/hello': { action: 'view-hello' },
   //?を付けるとIDが無くてもエラーが出なくなる（省略可）
   'GET /sample/:id?': { controller: 'SampleController', action: 'index' },
-  'POST /sample': {controller:'SampleController',action:'index_posted'}
+  'POST /sample': { controller: 'SampleController', action: 'index_posted' },
+  'GET /board' : { controller:'BoardController',action:'index' },
 
 
   /***************************************************************************

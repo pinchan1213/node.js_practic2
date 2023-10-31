@@ -12,32 +12,44 @@ module.exports = {
    */
   //送信ボタンを押した後の処理
   index: async function (req, res) {
-    // let msg = req.body.msg;
-    // message = '名前を入力';
-    // msg = '';
-    if (req.param('id')) {
-      message = 'あなたのIDは、' + req.param('id') + 'です。';
-    } else {
-      message = '名前を入力：';
+    // dataの値を準備
+    if (!req.session.data) {
+      // セッションの情報を保存する
+      req.session.data = [];
     }
-    if (req.method == 'POST') {
-      message = 'こんにちは、' + req.body.msg + 'さん';
-    }
+    // if (req.param('id')) {
+    //   message = 'あなたのIDは、' + req.param('id') + 'です。';
+    // } else {
+    //   message = '名前を入力：';
+    // }
+    // if (req.query.name) {
+    //   message += '(あなたの名前は、' + req.query.name + 'ですね？)';
+    // }
+    // if (req.method == 'POST') {
+    //   message = 'こんにちは、' + req.body.msg + 'さん';
+    // }
     return res.view({
       title: 'Sample',
-      message: message,
+      message: 'メッセージを送信してください。',
+      data:req.session.data,
       // msg:msg,
     });
   },
 
+  //フォームの送信後の処理
   index_posted: async function (req, res) {
+    // セッションにデータを保存
     msg = req.body.msg;
-    message = 'こんにちは' + msg + 'さん';
-    return res.view({
-      title: 'Sample',
-      msg: msg,
-      message: message
-    });
+    // message = 'こんにちは' + msg + 'さん';
+    // unshiftで一番前にデータを並べて表示する
+    req.session.data.unshift(msg);
+    //  /sampleにリダイレクト
+    return res.redirect('/sample');
+    // return res.view({
+    //   title: 'Sample',
+    //   msg: msg,
+    //   message: message
+    // });
   },
 
   /**

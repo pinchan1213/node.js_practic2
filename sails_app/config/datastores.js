@@ -33,6 +33,20 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
+    // MySQLの設定　（基本設定）
+    // adapter: 'sails-mysql',//MySQLの場合は必ず、'sails-mysql'と設定する
+    // host: 'ホスト名',
+    // port: 'ポート番号',
+    // user: 'ユーザー名',
+    // password: 'パスワード',
+    // database: 'データベース名',
+    
+    adapter: 'sails-mysql',//MySQLの場合は必ず、'sails-mysql'と設定する
+    host: 'localhost',
+    port: '3306',
+    user: 'root',
+    password: '',
+    database:'sails_db',
 
     /***************************************************************************
     *                                                                          *

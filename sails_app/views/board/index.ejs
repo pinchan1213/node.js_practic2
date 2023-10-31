@@ -1,0 +1,14 @@
+<div id="hello" v-cloak>
+
+    <h1 class="display-4"><%= title %></h1>
+    <p><%= msg %></p>
+    <ul class="mt-4 list-group">
+        <% for(let item of data) {%>
+            <li class="list-group-item">
+                <%= item.message %>(<%= item.user %>)
+            </li>
+        <% } %>
+    </ul>
+</div>
+<!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
+<%- exposeLocalsToBrowser() %>
