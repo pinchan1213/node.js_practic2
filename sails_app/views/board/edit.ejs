@@ -1,11 +1,11 @@
-    <h1 class="display-4"><%=title %></h1>
-    <p><%= msg %></p>
+<div id="hello" v-cloak>
 
-    <!-- //dataは更新するデータが保管されている値 /board/edit/番号というパスにPOST送信されるようにしている -->
+    <h1 class="display-4"><%= title %></h1>
+    <p><%= msg %></p>
     <form method="POST" action="/board/edit/<%=data.id %>">
         <div class="mb-3">
             <label for="message" class="form-label">Message</label>
-            <input type="text" name="message" id="message" class="form-control" value="<%=data.message %>">
+            <input type="text" name="message" id="message" class="form-control" value="<%= data.message %>">
         </div>
         <div class="mb-3">
             <label for="user" class="form-label">User</label>
@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" name="email" id="email" class="form-control" value="<%=data.email %>">
+            <input type="text" name="email" id="email" class="form-control" value="<%=data.email%>">
         </div>
         <button type="submit" class="btn btn-secondary">送信</button>
     </form>

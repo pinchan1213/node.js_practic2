@@ -25,5 +25,23 @@ module.exports = {
         await Board.create(req.body);
         return res.redirect('/board');
     },
+
+    //編集画面を表示
+    edit: async function (req, res) {
+        const id = parseInt(req.param('id'));
+        let data = await Board.findOne({ id: id });
+        return res.view({
+            title: 'Sample',
+            msg: 'Boardモデルを更新します。',
+            data: data,
+        });
+    },
+
+    //POST送信した後の更新の処理
+    edit_posted: async function (req, res) {
+        const id = parseInt(req.param('id'));
+        await Board.updateOne({ id: id }).set(req.body);
+        return redirect('/board');
+    },
 };
 
