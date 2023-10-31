@@ -28,7 +28,9 @@ module.exports = {
 
     //編集画面を表示
     edit: async function (req, res) {
+        // 指定したIDのデータを取得
         const id = parseInt(req.param('id'));
+        // 定数idをBoardモデルから取得してくる
         let data = await Board.findOne({ id: id });
         return res.view({
             title: 'Sample',
@@ -39,7 +41,9 @@ module.exports = {
 
     //POST送信した後の更新の処理
     edit_posted: async function (req, res) {
+        //送信されたパラメーターからIDの値を取り出す
         const id = parseInt(req.param('id'));
+        //updateOneでデータの更新を行う
         await Board.updateOne({ id: id }).set(req.body);
         return redirect('/board');
     },
