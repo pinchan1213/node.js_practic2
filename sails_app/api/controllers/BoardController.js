@@ -12,12 +12,10 @@ module.exports = {
   
     //boardのページを表示
     index: async function (req, res) {
-        //Boardの全データを取得する find()、awaitを使って実行を待って処理を進める
-        // モデルからデータを取得し、取り出されたデータは配列として返される
         let data = await Board.find();
         return res.view({
             title: 'Sample',
-            msg: 'Boardモデルを使用します。',
+            msg: 'Boardモデルを利用します。',
             data: data,
         });
     },

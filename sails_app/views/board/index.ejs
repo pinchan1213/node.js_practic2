@@ -3,9 +3,10 @@
     <h1 class="display-4"><%= title %></h1>
     <p><%= msg %></p>
     <ul class="mt-4 list-group">
+        <!-- dataを変数itemに格納 -->
         <% for(let item of data) {%>
             <li class="list-group-item">
-                <%= data.message %>(<%= data.user %>)
+                <%= item.message %>(<%= item.user %>)
             </li>
         <% } %>
     </ul>
