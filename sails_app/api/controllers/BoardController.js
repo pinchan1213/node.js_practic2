@@ -19,5 +19,11 @@ module.exports = {
             data: data,
         });
     },
+
+    //POST送信のあとの処理
+    index_posted: async function (req, res) {
+        await Board.create(req.body);
+        return res.redirect('/board');
+    },
 };
 

@@ -1,0 +1,22 @@
+    <h1 class="display-4"><%=title %></h1>
+    <p><%= msg %></p>
+
+    <!-- //dataは更新するデータが保管されている値 /board/edit/番号というパスにPOST送信されるようにしている -->
+    <form method="POST" action="/board/edit/<%=data.id %>">
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <input type="text" name="message" id="message" class="form-control" value="<%=data.message %>">
+        </div>
+        <div class="mb-3">
+            <label for="user" class="form-label">User</label>
+            <input type="text" name="user" id="user" class="form-control" value="<%=data.user %>">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" id="email" class="form-control" value="<%=data.email %>">
+        </div>
+        <button type="submit" class="btn btn-secondary">送信</button>
+    </form>
+</div>
+<!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
+<%- exposeLocalsToBrowser() %>
