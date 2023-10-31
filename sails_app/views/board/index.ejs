@@ -6,18 +6,18 @@
         <!-- dataを変数itemに格納 -->
         <% for(let item of data) {%>
             <li class="list-group-item">
-                <%= item.message %>(<%= item.user %>)
+                <%= item.user %>(<%= item.message %>)
             </li>
         <% } %>
     </ul>
         <form method="POST" action="/board">
             <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <input type="text" name="message" id="message" class="form-control">
-            </div>
-            <div class="mb-3">
                 <label for="user" class="form-label">User</label>
                 <input type="text" name="user" id="user" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <input type="text" name="message" id="message" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
