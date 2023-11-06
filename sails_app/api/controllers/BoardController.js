@@ -45,7 +45,26 @@ module.exports = {
         const id = parseInt(req.param('id'));
         //updateOneでデータの更新を行う
         await Board.updateOne({ id: id }).set(req.body);
-        return redirect('/board');
+        return res.redirect('/board');
+    },
+
+    //削除ページの表示
+    delete: async function (req, res) {
+        const id = parseInt(req.param('id'));
+        let data = await Board.findOne({ id: id });
+        return res.view({
+            title: 'Sample',
+            msg: 'Boardモデルを削除します。',
+            data: data,
+        });
+    },
+
+    //削除の処理
+    delete_posted: async function (req, res) {
+        const id = parseInt(req.param('id'));
+        //一つのデータのみ削除する
+        await Board.destroyOne({ id: id });
+        return res.redirect('/board');
     },
 };
 

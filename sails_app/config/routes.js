@@ -27,7 +27,9 @@ module.exports.routes = {
   'GET /board': { controller: 'BoardController', action: 'index' },
   'POST /board': { controller: 'BoardController', action: 'index_posted' },
   'GET /board/edit/:id': { controller: 'BoardController', action: 'edit' },
-  'POST /board/edit/:id':{ controller:'BoardController', action:'edit_posted' },
+  'POST /board/edit/:id': { controller: 'BoardController', action: 'edit_posted' },
+  'GET /board/delete/:id': { controller: 'BoardController', action: 'delete' },
+  'POST /board/delete/:id':{controller:'BoardController',action:'delete_posted'},
 
 
   /***************************************************************************
