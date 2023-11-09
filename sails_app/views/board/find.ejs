@@ -1,0 +1,18 @@
+<h1 class="display-4"><%= title %></h1>
+<p><%= msg %></p>
+<form method="POST" action="/board/find">
+    <div class="mb-3">
+        <label for="find" class="form-label">Find：</label>
+        <input type="text" name="find" id="find" class="form-label" value="<%=find %>">
+    </div>
+    <button type="submit" class="btn btn-secondary">送信</button>
+</form>
+<ul class="mt-4 list-group">
+    <% for(let item of data) {%>
+        <li class="list-group-item">
+            <%= item.message%>（<%=item.user%>）
+        </li>
+    <%}%>
+</ul>
+<!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
+<%- exposeLocalsToBrowser() %>

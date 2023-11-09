@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': { view: 'board/index' },
   '/hello': { action: 'view-hello' },
   //?を付けるとIDが無くてもエラーが出なくなる（省略可）
   'GET /sample/:id?': { controller: 'SampleController', action: 'index' },
@@ -30,6 +30,8 @@ module.exports.routes = {
   'POST /board/edit/:id': { controller: 'BoardController', action: 'edit_posted' },
   'GET /board/delete/:id': { controller: 'BoardController', action: 'delete' },
   'POST /board/delete/:id':{controller:'BoardController',action:'delete_posted'},
+  'GET /board/find':{controller:'BoardController',action:'find'},
+  'POST /board/find':{controller:'BoardController',action:'find_posted'},
 
 
   /***************************************************************************

@@ -3,9 +3,9 @@
     <form method="POST" action="/board/delete/<%=data.id %>">
         <p>削除するメッセージ：</p>
     <span class="border border-danger p-1">
-        <%=data.message%>"(<%=data.user%>)"
+        <%=data.user%>"(<%=data.message%>)"
     </span>
-        <button type="submit" class="btn btn-secondary">送信</button>
+        <button type="submit" class="btn btn-secondary">検索</button>
     </form>
 <!-- サーバー側に用意された値をクライアント側のJavascriptにわたすもの -->
 <%- exposeLocalsToBrowser() %>
