@@ -24,10 +24,13 @@ import Route from '@ioc:Adonis/Core/Route'
 //   return view.render('welcome')
 // })
 
-Route.get('/',async({view}){
+Route.get('/',async({view}) => {
   const data = {
     title:'AdonisJS Sample',
     message:'これはサンプルで用意したページです。',
   }
   return view.render('welcome',data);
 });
+
+Route.get('/sample','SamplesController.index');
+Route.post('/sample','SamplesController.index_posted');
