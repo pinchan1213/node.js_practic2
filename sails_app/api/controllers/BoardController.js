@@ -69,7 +69,9 @@ module.exports = {
 
     //検索ページの表示
     find:async function(req,res){
-        let data = await Board.find();
+        let data = await Board.find({
+            sort:['user ASC','createdAt DESC'],
+        });
         return res.view({
             title:'Sample',
             msg:'Boardモデルを検索します',
@@ -81,11 +83,18 @@ module.exports = {
     //検索機能実装
     find_posted:async function(req,res){
         let data = await Board.find({
-            //テキストを含むものを検索する
-            message:{contains:req.body.find},
-            // //ユーザーを検索
-            // user:req.body.find
+            where:{
+                message:{contains:req.body.find},
+            },
+            sort:'user ASC'
         });
+            // //どちらか含んでいる物を検索する
+            // or:[
+            //     //テキストを含むものを検索する
+            //     {message:{contains:req.body.find}},
+            //     //ユーザーを検索
+            //     {user : {contains:req.body.find}},
+            // ]
         return res.view('board/find',{
             title:'Sample',
             msg:'Boardモデルの検索「' + req.body.find + '」',
