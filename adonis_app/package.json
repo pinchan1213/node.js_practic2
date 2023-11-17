@@ -31,7 +31,7 @@
     "@adonisjs/view": "^6.2.0",
     "chokidar": "^3.5.3",
     "express": "^4.18.2",
-    "luxon": "^3.4.3",
+    "luxon": "^3.4.4",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21",

@@ -1,10 +1,8 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class People extends BaseSchema {
-  //モデルに対応するテーブル名
+export default class extends BaseSchema {
   protected tableName = 'people'
 
-  //バージョンを上げる（更新する）処理
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
@@ -20,7 +18,6 @@ export default class People extends BaseSchema {
     })
   }
 
-  //バージョンを下げる（更新を取消す）処理
   public async down () {
     this.schema.dropTable(this.tableName)
   }

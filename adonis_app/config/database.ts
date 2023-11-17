@@ -20,8 +20,10 @@ const databaseConfig: DatabaseConfig = {
   | file.
   |
   */
+ //どのデータベースに接続するかを指定するもの
   connection: Env.get('DB_CONNECTION'),
 
+  //接続に関する必要情報をオブジェクトにまとめたもの
   connections: {
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +37,9 @@ const databaseConfig: DatabaseConfig = {
     |
     */
     sqlite: {
+      //使われるデータベースの種類
       client: 'sqlite',
+      //接続に関する情報
       connection: {
         filename: Application.tmpPath('db.sqlite3'),
       },
@@ -51,6 +55,7 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
+
   }
 }
 
